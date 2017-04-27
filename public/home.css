@@ -1,0 +1,25 @@
+body {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	color: #333;
+	max-width: 1000px;
+	width: 80%;
+	margin: 0 auto;
+}
+a {text-decoration: none;color: currentColor;}
+
+header {
+	border-bottom: 1px solid;
+	margin-bottom: 2rem;
+}
+body > header {
+	display: flex;
+	justify-content: space-between;
+}
+header .loggedin-admin {
+	margin-left: auto;
+}
+
+main {
+	display: flex;
+	align-items: flex-start;
+}

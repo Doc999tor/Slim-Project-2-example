@@ -1,0 +1,36 @@
+.entities {
+	display: flex;
+	flex-wrap: wrap;
+	width: 20%;
+	max-width: 10rem;
+}
+.entities:not(:last-child) {margin-right: 1rem;}
+.entities > header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding-bottom: .2rem;
+	margin-bottom: 1rem;
+	font-size: 1.2rem;
+}
+.entities > header h3 {margin: 0;}
+.entities > header a {display: block;padding: 0rem .7rem;border: 1px solid;}
+
+.entities .entities-list a {
+	display: block;
+	text-align: center;
+}
+.entities .entities-list a:not(:last-child) {margin-bottom: .5rem;}
+
+.entities .entities-list a img {
+	width: 100%;
+}
+.entities .entities-list a span.description {
+	border-bottom: 1px solid transparent;
+	transition: border-bottom-color .5s;
+}
+.entities .entities-list a:focus span.description,
+.entities .entities-list a:hover span.description {
+	border-bottom-color: currentColor;
+}

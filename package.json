@@ -1,0 +1,15 @@
+{
+  "name": "zoominfo-test-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {},
+  "author": "Victor",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-connect-php": "1.0.0",
+    "gulp-watch": "^4.3.11"
+  }
+}

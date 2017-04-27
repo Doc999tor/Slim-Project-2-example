@@ -1,0 +1,13 @@
+<header>
+	<nav>
+		<a href="/school">School</a>
+		<a href="/administration">Administration</a>
+	</nav>
+	<div class="loggedin-admin">
+		<div class="username-block">
+			<span>{{admin.name | capitalize}}</span>
+			<a href="/logout">Logout</a>
+		</div>
+		<img src="public/admins/img/{{admin.img}}" alt="admin photo">
+	</div>
+</header>
