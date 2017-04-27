@@ -26,11 +26,3 @@
 .entities .entities-list a img {
 	width: 100%;
 }
-.entities .entities-list a span.description {
-	border-bottom: 1px solid transparent;
-	transition: border-bottom-color .5s;
-}
-.entities .entities-list a:focus span.description,
-.entities .entities-list a:hover span.description {
-	border-bottom-color: currentColor;
-}

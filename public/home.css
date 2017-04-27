@@ -6,17 +6,12 @@ body {
 	margin: 0 auto;
 }
 a {text-decoration: none;color: currentColor;}
-
-header {
-	border-bottom: 1px solid;
-	margin-bottom: 2rem;
+a span {
+	border-bottom: 1px solid transparent;
+	transition: border-bottom-color .5s;
 }
-body > header {
-	display: flex;
-	justify-content: space-between;
-}
-header .loggedin-admin {
-	margin-left: auto;
+a:focus span, a:hover span {
+	border-bottom-color: currentColor;
 }
 
 main {

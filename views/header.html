@@ -4,9 +4,9 @@
 		<a href="/administration">Administration</a>
 	</nav>
 	<div class="loggedin-admin">
-		<div class="username-block">
-			<span>{{admin.name | capitalize}}</span>
-			<a href="/logout">Logout</a>
+		<div class="adminname-block">
+			<span>{{admin.name | capitalize}}, {{admin.role | capitalize}}</span>
+			<a href="/logout" id="logout"><span>Logout</span></a>
 		</div>
 		<img src="public/admins/img/{{admin.img}}" alt="admin photo">
 	</div>

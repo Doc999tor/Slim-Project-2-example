@@ -1,0 +1,35 @@
+header {
+	border-bottom: 1px solid;
+	margin-bottom: 2rem;
+}
+body > header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 5rem;
+	padding: .5rem 0;
+}
+body > header nav {display: flex;}
+body > header nav a:not(:last-child):after {
+	content: "";
+	width: 1px;height: 100%;
+	border-left: 1px solid;
+	margin: 0 .5rem;
+}
+body > header .loggedin-admin {
+	display: flex;
+	height: 100%;
+}
+body > header .loggedin-admin .adminname-block {
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	padding-right: 1rem;
+}
+body > header .loggedin-admin .adminname-block > * {text-align: right;}
+#logout {margin-top: .5rem;}
+#logout span {
+	border-bottom-color: currentColor;
+}
+
+body > header .loggedin-admin img {height: 100%;}
