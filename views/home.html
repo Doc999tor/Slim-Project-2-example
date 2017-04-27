@@ -14,11 +14,11 @@
 		<section class="entities courses">
 			<header>
 				<h3>Courses</h3>
-				<button class="link flat-btn" href="courses/add">+</button>
+				<button class="load-form-btn link flat-btn" data-formurl="courses/add">+</button>
 			</header>
 			<div class="entities-list">
 			{% for course in data.courses.arr %}
-				<div class="entities-block" href="courses/edit/{{course.id}}" class="course">
+				<div class="load-form-btn entities-block course" data-formurl="courses/edit/{{course.id}}">
 					<img src="public/courses/img/{{course.img}}" alt="{{course.name}}">
 					<span class="description">{{course.name}}</span>
 				</div>
@@ -28,17 +28,19 @@
 		<section class="entities students">
 			<header>
 				<h3>Students</h3>
-				<button class="link flat-btn" href="students/add">+</button>
+				<button class="load-form-btn link flat-btn" data-formurl="students/add">+</button>
 			</header>
 			<div class="entities-list">
 			{% for student in data.students.arr %}
-				<div class="entities-block" href="students/edit/{{student.id}}" class="student">
+				<div class="load-form-btn entities-block student" data-formurl="students/edit/{{student.id}}">
 					<img src="public/students/img/{{student.img}}" alt="{{student.name}}">
 					<span class="description">{{student.name}}</span>
 				</div>
 			{% endfor %}
 			</div>
 		</section>
+		<form class="action-form"></form>
 	</main>
+	<script type="text/javascript" src="public/lists.js"></script>
 </body>
 </html>

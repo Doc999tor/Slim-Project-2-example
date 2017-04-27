@@ -42,6 +42,7 @@ class SchoolCtrl {
     }
 
     public function editForm(Request $request, Response $response) {
+        $entity = ["id" => "", "name" => "War", "img" => ""];
         $this->view->render($response, "form.html", [
             "entity" => $entity
         ]);

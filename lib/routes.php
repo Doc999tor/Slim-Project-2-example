@@ -7,5 +7,5 @@ $app->get('/', function (Request $request, Response $response) {
 });
 
 $app->get('/school', 'SchoolCtrl:home');
-$app->get('/school/edit/{id:\d+}', 'SchoolCtrl:editForm');
-$app->get('/school/add', 'SchoolCtrl:addForm');
+$app->get('/{ent:courses|students|admins}/edit/{id:\d+}', 'SchoolCtrl:editForm');
+$app->get('/{ent:courses|students|admins}/add', 'SchoolCtrl:addForm');

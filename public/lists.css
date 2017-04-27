@@ -20,6 +20,7 @@
 .entities .entities-list .entities-block {
 	display: block;
 	text-align: center;
+	cursor: pointer;
 }
 .entities .entities-list .entities-block:not(:last-child) {margin-bottom: .5rem;}
 
