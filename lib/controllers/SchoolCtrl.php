@@ -40,4 +40,15 @@ class SchoolCtrl {
             ],
         ]);
     }
+
+    public function editForm(Request $request, Response $response) {
+        $this->view->render($response, "form.html", [
+            "entity" => $entity
+        ]);
+    }
+    public function addForm(Request $request, Response $response) {
+        $this->view->render($response, "form.html", [
+            "entity" => ["id" => "", "name" => "", "img" => ""]
+        ]);
+    }
 }

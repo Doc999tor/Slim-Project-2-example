@@ -15,14 +15,14 @@
 	font-size: 1.2rem;
 }
 .entities > header h3 {margin: 0;}
-.entities > header a {display: block;padding: 0rem .7rem;border: 1px solid;}
+.entities > header .link {display: block;padding: 0rem .7rem;border: 1px solid;}
 
-.entities .entities-list a {
+.entities .entities-list .entities-block {
 	display: block;
 	text-align: center;
 }
-.entities .entities-list a:not(:last-child) {margin-bottom: .5rem;}
+.entities .entities-list .entities-block:not(:last-child) {margin-bottom: .5rem;}
 
-.entities .entities-list a img {
+.entities .entities-list .entities-block img {
 	width: 100%;
 }

@@ -6,12 +6,21 @@ body {
 	margin: 0 auto;
 }
 a {text-decoration: none;color: currentColor;}
-a span {
+.link span {
 	border-bottom: 1px solid transparent;
 	transition: border-bottom-color .5s;
 }
-a:focus span, a:hover span {
+.link:focus span, .link:hover span {
 	border-bottom-color: currentColor;
+}
+.flat-btn {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	background: none;
+	border: none;
+	font-size: inherit;
+	cursor: pointer;
 }
 
 main {

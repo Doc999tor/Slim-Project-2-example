@@ -7,8 +7,5 @@ $app->get('/', function (Request $request, Response $response) {
 });
 
 $app->get('/school', 'SchoolCtrl:home');
-
-$app->get('/api/users', 'SchoolCtrl:get');
-$app->post('/api/user', 'SchoolCtrl:post');
-
-$app->options('/', 'SchoolCtrl:options');
+$app->get('/school/edit/{id:\d+}', 'SchoolCtrl:editForm');
+$app->get('/school/add', 'SchoolCtrl:addForm');
