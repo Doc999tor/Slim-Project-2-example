@@ -1,0 +1,14 @@
+<section class="entities courses">
+	<header>
+		<h3>Courses</h3>
+		<button class="load-form-btn link flat-btn" data-formurl="courses/add">+</button>
+	</header>
+	<div class="entities-list">
+	{% for course in data.courses.arr %}
+		<div class="load-form-btn entities-block course" data-formurl="courses/show/{{course.id}}">
+			<img src="public/courses/img/{{course.img}}" alt="{{course.name}}">
+			<span class="description">{{course.name}}</span>
+		</div>
+	{% endfor %}
+	</div>
+</section>

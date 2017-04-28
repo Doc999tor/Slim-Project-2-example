@@ -1,0 +1,14 @@
+<section class="entities admins">
+	<header>
+		<h3>Admins</h3>
+		<button class="load-form-btn link flat-btn" data-formurl="admins/add">+</button>
+	</header>
+	<div class="entities-list">
+	{% for admin in data.admins.arr %}
+		<div class="load-form-btn entities-block admin" data-formurl="admins/edit/{{admin.id}}">
+			<img src="public/admins/img/{{admin.img}}" alt="{{admin.name}}">
+			<span class="description">{{admin.name}}</span>
+		</div>
+	{% endfor %}
+	</div>
+</section>

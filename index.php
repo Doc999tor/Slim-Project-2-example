@@ -47,11 +47,17 @@ $container['db'] = function ($c) {
 $container['SchoolCtrl'] = function ($container) {
 	return new \Lib\Controllers\SchoolCtrl($container);
 };
+$container['AdministrationCtrl'] = function ($container) {
+	return new \Lib\Controllers\AdministrationCtrl($container);
+};
 $container['CourseCtrl'] = function ($container) {
 	return new \Lib\Controllers\CourseCtrl($container);
 };
 $container['StudentCtrl'] = function ($container) {
 	return new \Lib\Controllers\StudentCtrl($container);
+};
+$container['AdminCtrl'] = function ($container) {
+	return new \Lib\Controllers\AdminCtrl($container);
 };
 
 require 'lib/routes.php';

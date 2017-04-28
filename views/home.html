@@ -11,34 +11,9 @@
 <body>
 	{% include 'header.html' %}
 	<main>
-		<section class="entities courses">
-			<header>
-				<h3>Courses</h3>
-				<button class="load-form-btn link flat-btn" data-formurl="courses/add">+</button>
-			</header>
-			<div class="entities-list">
-			{% for course in data.courses.arr %}
-				<div class="load-form-btn entities-block course" data-formurl="courses/show/{{course.id}}">
-					<img src="public/courses/img/{{course.img}}" alt="{{course.name}}">
-					<span class="description">{{course.name}}</span>
-				</div>
-			{% endfor %}
-			</div>
-		</section>
-		<section class="entities students">
-			<header>
-				<h3>Students</h3>
-				<button class="load-form-btn link flat-btn" data-formurl="students/add">+</button>
-			</header>
-			<div class="entities-list">
-			{% for student in data.students.arr %}
-				<div class="load-form-btn entities-block student" data-formurl="students/show/{{student.id}}">
-					<img src="public/students/img/{{student.img}}" alt="{{student.name}}">
-					<span class="description">{{student.name}}</span>
-				</div>
-			{% endfor %}
-			</div>
-		</section>
+		{% for section in sections %}
+		    {% include "home/%s.html" | format(section) %}
+		{% endfor %}
 		<section class="main-container"></section>
 	</main>
 	<script type="text/javascript" src="public/lists.js"></script>

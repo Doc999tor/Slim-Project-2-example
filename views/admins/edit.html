@@ -1,0 +1,23 @@
+<link rel="stylesheet" type="text/css" href="public/edit.css"/>
+<form class="edit admin-edit">
+	<header>
+		<h3>Edit administrator {{admin.name}}</h3>
+	</header>
+	<div class="row">
+		<input type="submit" value="Save" class="load-form-btn flat-btn link">
+		<button type="button" class="load-form-btn flat-btn link delete-btn" data-formurl="admins/delete/{{admin.id}}">Delete</button>
+	</div>
+	<label class="row">
+		<span>Name: </span>
+		<input type="text" placeholder="Name" value="{{admin.name}}">
+	</label>
+	<label class="row">
+		<span>Role: </span>
+		<input type="text" placeholder="Role" value="{{admin.role_name}}">
+	</label>
+	<label class="row">
+		<span>Image: </span>
+		<input type="file" placeholder="Image">
+		<img src="../../public/admins/img/{{admin.img}}" alt="{{admin.name}}">
+	</label>
+</form>

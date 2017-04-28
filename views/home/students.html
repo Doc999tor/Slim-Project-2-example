@@ -1,0 +1,14 @@
+<section class="entities students">
+	<header>
+		<h3>Students</h3>
+		<button class="load-form-btn link flat-btn" data-formurl="students/add">+</button>
+	</header>
+	<div class="entities-list">
+	{% for student in data.students.arr %}
+		<div class="load-form-btn entities-block student" data-formurl="students/show/{{student.id}}">
+			<img src="public/students/img/{{student.img}}" alt="{{student.name}}">
+			<span class="description">{{student.name}}</span>
+		</div>
+	{% endfor %}
+	</div>
+</section>

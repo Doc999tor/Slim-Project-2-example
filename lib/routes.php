@@ -7,6 +7,7 @@ $app->get('/', function (Request $request, Response $response) {
 });
 
 $app->get('/school', 'SchoolCtrl:home');
+$app->get('/administration', 'AdministrationCtrl:home');
 
 $app->get('/courses/show/{id:\d+}', 'CourseCtrl:show');
 $app->get('/courses/edit/{id:\d+}', 'CourseCtrl:editForm');
@@ -19,3 +20,8 @@ $app->get('/students/edit/{id:\d+}', 'StudentCtrl:editForm');
 $app->get('/students/add/', 'StudentCtrl:add');
 $app->put('/students/{id:\d+}', 'StudentCtrl:put');
 $app->delete('/students/{id:\d+}', 'StudentCtrl:delete');
+
+$app->get('/admins/edit/{id:\d+}', 'AdminCtrl:editForm');
+$app->get('/admins/add/', 'AdminCtrl:add');
+$app->put('/admins/{id:\d+}', 'AdminCtrl:put');
+$app->delete('/admins/{id:\d+}', 'AdminCtrl:delete');
