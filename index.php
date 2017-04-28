@@ -47,6 +47,12 @@ $container['db'] = function ($c) {
 $container['SchoolCtrl'] = function ($container) {
 	return new \Lib\Controllers\SchoolCtrl($container);
 };
+$container['CourseCtrl'] = function ($container) {
+	return new \Lib\Controllers\CourseCtrl($container);
+};
+$container['StudentCtrl'] = function ($container) {
+	return new \Lib\Controllers\StudentCtrl($container);
+};
 
 require 'lib/routes.php';
 

@@ -1,0 +1,23 @@
+.show {
+	display: flex;
+	flex-wrap: wrap;
+}
+.show header {}
+
+.show main {
+	flex-wrap: wrap;
+	width: 100%;
+	--main-image-width: 10rem;
+}
+.show .main-item {
+	display: flex;
+	align-items: flex-start;
+	width: 100%;
+	margin-bottom: 1rem;
+}
+.show .main-item img {
+	width: var(--main-image-width);
+	margin-right: 1rem;
+}
+.show figure {display: flex;align-items: center;width: 100%;}
+.show figure img {width: calc(var(--main-image-width) / 2); margin-right: 1rem;}

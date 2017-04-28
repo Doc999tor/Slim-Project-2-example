@@ -1,0 +1,19 @@
+<link rel="stylesheet" type="text/css" href="public/edit.css"/>
+<form class="edit student-edit">
+	<header>
+		<h3>Edit student {{student.name}}</h3>
+	</header>
+	<div class="row">
+		<input type="submit" value="Save" class="load-form-btn flat-btn link">
+		<button type="button" class="load-form-btn flat-btn link delete-btn" data-formurl="students/delete/{{student.id}}">Delete</button>
+	</div>
+	<label class="row">
+		<span>Name: </span>
+		<input type="text" placeholder="Name" value="{{student.name}}">
+	</label>
+	<label class="row">
+		<span>Image: </span>
+		<input type="file" placeholder="Image">
+		<img src="../../public/students/img/{{student.img}}" alt="{{student.name}}">
+	</label>
+</form>

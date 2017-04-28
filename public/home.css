@@ -22,8 +22,27 @@ a {text-decoration: none;color: currentColor;}
 	font-size: inherit;
 	cursor: pointer;
 }
+.link {display: block;padding: 0rem .7rem;border: 1px solid;}
+.load-form-btn {cursor: pointer;}
+figure {margin: 0;}
 
 main {
 	display: flex;
 	align-items: flex-start;
 }
+
+main > section {
+	width: 20%;
+	max-width: 10rem;
+}
+main > section.main-container {width: 50%;margin-left: auto;max-width: initial;}
+
+main > section header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding-bottom: .2rem;
+	font-size: 1.2rem;
+}
+main > section header h3 {margin: 0;}

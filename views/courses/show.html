@@ -1,0 +1,22 @@
+<link rel="stylesheet" type="text/css" href="../../public/show.css"/>
+<div class="show show-{{path}}">
+	<header>
+		<h3>Course</h3>
+		<button data-formurl="courses/edit/{{course.id}}" class="flat-btn link">Edit</button>
+	</header>
+	<main>
+		<div class="main-item">
+			<img src="../../public/courses/img/{{course.img}}" alt="{{course.name}}">
+			<div class="course-details details">
+				<h3>Course {{course.name}}, {{students|length}} Students</h3>
+				<span class="description">{{course.description}}</span>
+			</div>
+		</div>
+		{% for student in students %}
+		    <figure class="load-form-btn" data-formurl="students/show/{{student.id}}">
+		    	<img src="../../public/students/img/{{student.img}}" alt="{{student.name}}">
+		    	<figcaption>{{student.name}}</figcaption>
+		    </figure>
+		{% endfor %}
+	</main>
+</div>

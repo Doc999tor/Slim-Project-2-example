@@ -1,27 +1,17 @@
 <?php
 namespace Lib\Controllers;
 
-use \Slim\Container as Container;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-class SchoolCtrl {
-    private $container;
-    private $view;
-    private $db;
-
-    public function __construct(Container $container) {
-        $this->container = $container;
-        $this->view = $container->get('view');
-        $this->db = $container->get('db');
-    }
+class SchoolCtrl extends Controller {
     public function home(Request $request, Response $response): Response {
         $path = 'home';
         $courses = \Lib\Entities\Course::selectAll($this->db);
         $students = \Lib\Entities\Student::selectAll($this->db);
 
         $response = $response->withHeader('X-Robots-Tag', 'noindex, nofollow');
-        return $this->view->render($response, "{$path}.html", [
+        return $this->view->render($response, "home.html", [
             'path' => $path,
             'data' => [
                 "courses" => [
@@ -38,18 +28,6 @@ class SchoolCtrl {
                 "role" => "sales",
                 "img" => "war.jpg"
             ],
-        ]);
-    }
-
-    public function editForm(Request $request, Response $response) {
-        $entity = ["id" => "", "name" => "War", "img" => ""];
-        $this->view->render($response, "form.html", [
-            "entity" => $entity
-        ]);
-    }
-    public function addForm(Request $request, Response $response) {
-        $this->view->render($response, "form.html", [
-            "entity" => ["id" => "", "name" => "", "img" => ""]
         ]);
     }
 }

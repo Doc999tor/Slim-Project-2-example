@@ -1,0 +1,29 @@
+form.edit {
+	--label-width: 6rem;
+}
+
+form.edit .row {
+	display: flex;
+	align-items: flex-start;
+	width: 100%;
+	margin-bottom: 1rem;
+}
+form.edit div.row:first-of-type {
+	display: flex;
+	justify-content: space-between;
+}
+form.edit label.row > span {
+	display: block;
+	width: var(--label-width);
+}
+form.edit label.row > input,
+form.edit label.row > textarea {
+	width: calc(100% - var(--label-width));
+}
+form.edit label.row > textarea {font-family: inherit;}
+
+form.edit input[type=file] {display: none;}
+form.edit input[type=file]+img {
+	width: 10rem;
+	pointer-events: none;
+}

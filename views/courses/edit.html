@@ -1,0 +1,26 @@
+<link rel="stylesheet" type="text/css" href="public/edit.css"/>
+<form class="edit course-edit">
+	<header>
+		<h3>Edit course {{course.name}}</h3>
+	</header>
+	<div class="row">
+		<input type="submit" value="Save" class="load-form-btn flat-btn link">
+		<button type="button" class="load-form-btn flat-btn link delete-btn" data-formurl="courses/delete/{{course.id}}">Delete</button>
+	</div>
+	<label class="row">
+		<span>Name: </span>
+		<input type="text" placeholder="Name" value="{{course.name}}">
+	</label>
+	<label class="row">
+		<span>Description: </span>
+		<textarea name="" rows="3" placeholder="Description">{{course.description}}</textarea>
+	</label>
+	<label class="row">
+		<span>Image: </span>
+		<input type="file" placeholder="Image">
+		<img src="../../public/courses/img/{{course.img}}" alt="{{course.name}}">
+	</label>
+	<footer>
+		<span>Total {{students_count}} {% if students_count == 1 %}student{% else %}s{% endif %} taking course {{course.name}}</span>
+	</footer>
+</form>

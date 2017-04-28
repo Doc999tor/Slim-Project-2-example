@@ -12,7 +12,7 @@ abstract class Person implements ISavable {
 		$this->img = $img;
 	}
 
-	public function save() {}
-	public function edit() {}
-	public function delete() {}
+	public function save(\PDO $db) {}
+	public function edit(\PDO $db) {}
+	public function delete(\PDO $db) {}
 }

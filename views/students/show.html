@@ -1,0 +1,19 @@
+<link rel="stylesheet" type="text/css" href="../../public/show.css"/>
+<div class="show show-students">
+	<header>
+		<h3>Students</h3>
+		<button data-formurl="students/edit/{{student.id}}" class="load-form-btn flat-btn link">Edit</button>
+	</header>
+	<main>
+		<div class="main-item">
+			<img src="../../public/students/img/{{student.img}}" alt="{{student.name}}">
+			<div class="students-details details">
+				<h3>{{student.name}}</h3>
+			</div>
+		</div>
+	    <figure class="load-form-btn" data-formurl="courses/show/{{course.id}}">
+	    	<img src="../../public/courses/img/{{course.img}}" alt="{{course.name}}">
+	    	<figcaption>{{course.name}}</figcaption>
+	    </figure>
+	</main>
+</div>

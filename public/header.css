@@ -1,6 +1,6 @@
 header {
 	border-bottom: 1px solid;
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
 }
 body > header {
 	display: flex;
@@ -8,6 +8,7 @@ body > header {
 	align-items: center;
 	height: 5rem;
 	padding: .5rem 0;
+	margin-bottom: 2rem;
 }
 body > header nav {display: flex;}
 body > header nav a:not(:last-child):after {
@@ -28,8 +29,7 @@ body > header .loggedin-admin .adminname-block {
 }
 body > header .loggedin-admin .adminname-block > * {text-align: right;}
 #logout {margin-top: .5rem;}
-#logout span {
-	border-bottom-color: currentColor;
-}
+#logout span {}
+#logout:focus span, #logout:hover span {border-bottom-color: transparent !important;}
 
 body > header .loggedin-admin img {height: 100%;}
