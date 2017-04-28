@@ -3,5 +3,5 @@ return [
 	"host"   => "localhost",
 	"user"   => "root",
 	"pass"   => "",
-	"dbname" => "proj2"
+	"dbname" => "proj"
 ];

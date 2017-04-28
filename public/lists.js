@@ -1,6 +1,6 @@
 attachLoadEvent(Array.from(document.querySelectorAll('.load-form-btn')));
 // document.querySelectorAll('.load-form-btn')[5].click();
-loadTemplate('admins/edit/1');
+// loadTemplate('admins/edit/1');
 
 function attachLoadEvent(btns) {
 	btns.forEach(btn => btn.addEventListener('click', e => {

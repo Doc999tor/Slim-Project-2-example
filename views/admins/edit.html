@@ -1,7 +1,8 @@
 <link rel="stylesheet" type="text/css" href="public/edit.css"/>
 <form class="edit admin-edit">
 	<header>
-		<h3>Edit administrator {{admin.name}}</h3>
+		<h3>{% if admim.name is empty %}Add {% else %}Edit 
+		     {% endif %} administrator {{admin.name}}</h3>
 	</header>
 	<div class="row">
 		<input type="submit" value="Save" class="load-form-btn flat-btn link">

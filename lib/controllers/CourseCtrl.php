@@ -15,8 +15,8 @@ class CourseCtrl extends Controller {
         ]);
     }
     public function add(Request $request, Response $response) {
-        return $this->view->render($response, "form.html", [
-            "entity" => ["id" => "", "name" => "", "img" => ""]
+        return $this->view->render($response, "courses/edit.html", [
+            "course" => ["id" => "", "name" => "", "img" => ""]
         ]);
     }
     public function show(Request $request, Response $response, $args) {

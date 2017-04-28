@@ -1,7 +1,8 @@
 <link rel="stylesheet" type="text/css" href="public/edit.css"/>
 <form class="edit student-edit">
 	<header>
-		<h3>Edit student {{student.name}}</h3>
+		<h3>{% if student.name is empty %}Add {% else %}Edit 
+		     {% endif %} student {{student.name}}</h3>
 	</header>
 	<div class="row">
 		<input type="submit" value="Save" class="load-form-btn flat-btn link">

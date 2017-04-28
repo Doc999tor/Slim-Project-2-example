@@ -13,8 +13,8 @@ class StudentCtrl extends Controller {
         ]);
     }
     public function add(Request $request, Response $response) {
-        return $this->view->render($response, "form.html", [
-            "entity" => ["id" => "", "name" => "", "img" => ""]
+        return $this->view->render($response, "students/edit.html", [
+            "student" => ["id" => "", "name" => "", "img" => ""]
         ]);
     }
     public function show(Request $request, Response $response, $args) {
