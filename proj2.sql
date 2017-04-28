@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2017 at 10:27 PM
+-- Generation Time: Apr 28, 2017 at 02:12 AM
 -- Server version: 5.7.14
 -- PHP Version: 7.0.10
 
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `admins` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `role_id` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -38,10 +38,10 @@ CREATE TABLE `admins` (
 -- Dumping data for table `admins`
 --
 
-INSERT INTO `admins` (`id`, `name`, `password`, `image`, `role_id`) VALUES
-(1, 'Samael', '$2y$10$sFtSOrO1sva6xMYGWrCw4ePa.VbzDdihtfNzDmopA7oC4nVIqQo2.', 'samael.jpg', 1),
-(2, 'Death', '$2y$10$pxBTCYbCckUL4..p5.4h8utaoExhqNNOxMd7vPx2rptcgzId4BgnK', 'death.png', 2),
-(3, 'War', '$2y$10$q83ejOdyMSzBIC1W/EWGE./VGetmTtMUsIBEXnURfUBneBAO31lhe', 'war.jpg', 3);
+INSERT INTO `admins` (`id`, `name`, `image`, `password`, `role_id`) VALUES
+(1, 'Samael', 'samael.jpg', '$2y$10$sFtSOrO1sva6xMYGWrCw4ePa.VbzDdihtfNzDmopA7oC4nVIqQo2.', 1),
+(2, 'Death', 'death.png', '$2y$10$pxBTCYbCckUL4..p5.4h8utaoExhqNNOxMd7vPx2rptcgzId4BgnK', 2),
+(3, 'War', 'war.jpg', '$2y$10$q83ejOdyMSzBIC1W/EWGE./VGetmTtMUsIBEXnURfUBneBAO31lhe', 3);
 
 -- --------------------------------------------------------
 
@@ -105,7 +105,7 @@ CREATE TABLE `students` (
 INSERT INTO `students` (`id`, `name`, `image`, `course_id`) VALUES
 (1, 'Rag\'n\'Bone Man', 'bone.jpg', 1),
 (2, 'Otep', 'otep.jpg', 2),
-(3, 'Dany Filth', 'filth.jpg', 3);
+(3, 'Dany Filth', 'filth.png', 3);
 
 --
 -- Indexes for dumped tables
