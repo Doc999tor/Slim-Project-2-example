@@ -14,7 +14,7 @@ class CourseCtrl extends Controller {
             "students_count" => $students_count
         ]);
     }
-    public function add(Request $request, Response $response) {
+    public function addForm(Request $request, Response $response) {
         return $this->view->render($response, "courses/edit.html", [
             "course" => ["id" => "", "name" => "", "img" => ""]
         ]);
@@ -30,5 +30,9 @@ class CourseCtrl extends Controller {
             "course" => $course,
             "students" => $students,
         ]);
+    }
+
+    public function add(Request $request, Response $response) {
+        return $response;
     }
 }

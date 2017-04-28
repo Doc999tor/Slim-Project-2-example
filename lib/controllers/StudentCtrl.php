@@ -12,7 +12,7 @@ class StudentCtrl extends Controller {
             "student" => $student,
         ]);
     }
-    public function add(Request $request, Response $response) {
+    public function addForm(Request $request, Response $response) {
         return $this->view->render($response, "students/edit.html", [
             "student" => ["id" => "", "name" => "", "img" => ""]
         ]);
@@ -28,5 +28,9 @@ class StudentCtrl extends Controller {
             "student" => $student,
             "course"  => $course,
         ]);
+    }
+
+    public function add(Request $request, Response $response) {
+        return $response;
     }
 }

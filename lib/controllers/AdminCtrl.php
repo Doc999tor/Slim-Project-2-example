@@ -12,9 +12,13 @@ class AdminCtrl extends Controller {
             "admin" => $admin,
         ]);
     }
-    public function add(Request $request, Response $response) {
+    public function addForm(Request $request, Response $response) {
         return $this->view->render($response, "admins/edit.html", [
             "admin" => ["id" => "", "name" => "", "img" => "", "role_name" => ""]
         ]);
+    }
+
+    public function add(Request $request, Response $response) {
+        return $response;
     }
 }
