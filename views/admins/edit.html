@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="public/edit.css"/>
 <form class="edit admin-edit">
 	<header>
-		<h3>{% if admim.name is empty %}Add {% else %}Edit 
+		<h3>{% if admim.name is empty %}Add {% else %}Edit
 		     {% endif %} administrator {{admin.name}}</h3>
 	</header>
 	<div class="row">
@@ -19,6 +19,6 @@
 	<label class="row">
 		<span>Image: </span>
 		<input type="file" placeholder="Image">
-		<img src="../../public/admins/img/{{admin.img}}" alt="{{admin.name}}">
+		<img src="../../public/admins/img/{% if admin.img is empty %}default.jpg{% else %}{{admin.img}}{% endif %}" alt="{{admin.name}}">
 	</label>
 </form>
