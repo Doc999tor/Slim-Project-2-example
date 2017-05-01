@@ -1,6 +1,6 @@
 attachLoadEvent(Array.from(document.querySelectorAll('.load-form-btn')));
 // document.querySelectorAll('.load-form-btn')[5].click();
-// loadTemplate('admins/edit/1');
+loadTemplate('courses/addForm');
 
 function attachLoadEvent(btns) {
 	btns.forEach(btn => btn.addEventListener('click', e => {
@@ -19,8 +19,8 @@ function loadTemplate(url) {
 	.then(response => {
 		const container = document.querySelector('section.main-container');
 		container.innerHTML = response;
-		if (url.includes('edit')) {
-			container.querySelector('form.edit').addEventListener('submit', e => {
+		if (url.includes('edit') || url.includes('add')) {
+			container.querySelector('form').addEventListener('submit', e => {
 				e.preventDefault();
 				handleForm(...url.match(/\w+/g));
 			});
@@ -33,6 +33,22 @@ function loadTemplate(url) {
 	})
 }
 
-function handleForm(entity, action, id) {
-	console.log(arguments);
+var FormFactory = function (action) {
+	switch (action) {
+		case 'add':    return function (entity) {
+			console.log(`${entity}/add/post`);
+		}
+		case 'edit':   return function (entity, id) {
+			console.log(`${entity}/edit/${id}/put`);
+		}
+		case 'delete': return function (entity, id) {
+			console.log(`${entity}/delete/${id}/put`);
+		}
+		default: console.log(action); break;
+	}
 }
+
+var addEntity    = FormFactory('add');
+var editEntity   = FormFactory('edit');
+var deleteEntity = FormFactory('delete');
+var form = document.querySelector('.main-container');

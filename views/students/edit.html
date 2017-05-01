@@ -6,7 +6,7 @@
 	</header>
 	<div class="row">
 		<input type="submit" value="Save" class="load-form-btn flat-btn link">
-		<button type="button" class="load-form-btn flat-btn link delete-btn" data-formurl="students/delete/{{student.id}}">Delete</button>
+		{% if student.name is not empty %}<button type="button" class="load-form-btn flat-btn link delete-btn" data-formurl="students/delete/{{student.id}}">Delete</button>{% endif %}
 	</div>
 	<label class="row">
 		<span>Name: </span>

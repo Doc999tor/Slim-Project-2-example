@@ -1,3 +1,6 @@
+:root {
+	--border-color: #ccc;
+}
 body {
 	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 	color: #333;
@@ -6,13 +9,6 @@ body {
 	margin: 0 auto;
 }
 a {text-decoration: none;color: currentColor;}
-.link span {
-	border-bottom: 1px solid transparent;
-	transition: border-bottom-color .5s;
-}
-.link:focus span, .link:hover span {
-	border-bottom-color: currentColor;
-}
 .flat-btn {
 	-moz-appearance: none;
 	-webkit-appearance: none;
@@ -22,8 +18,25 @@ a {text-decoration: none;color: currentColor;}
 	font-size: inherit;
 	cursor: pointer;
 }
-.link {display: block;padding: 0rem .7rem;border: 1px solid;}
-.load-form-btn {cursor: pointer;}
+.load-form-btn {}
+.link {
+	padding: .33rem .7rem;
+	border: 1px solid var(--border-color);
+	border-radius: 4px;
+	color: currentColor;
+}
+.link span {
+	border-bottom: 1px solid transparent;
+	transition: border-bottom-color .5s;
+}
+.link:active {
+	background-color: #e6e6e6;
+	border-color: #8c8c8c;
+	box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+}
+.link:focus span, .link:hover span {
+	border-bottom-color: currentColor;
+}
 figure {margin: 0;}
 
 main {
