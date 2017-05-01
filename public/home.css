@@ -18,7 +18,7 @@ a {text-decoration: none;color: currentColor;}
 	font-size: inherit;
 	cursor: pointer;
 }
-.load-form-btn {}
+.load-form-btn {cursor: pointer;}
 .link {
 	padding: .33rem .7rem;
 	border: 1px solid var(--border-color);

@@ -5,20 +5,20 @@
 		     {% endif %} course {{course.name}}</h3>
 	</header>
 	<div class="row">
-		<input type="submit" value="Save" class="load-form-btn flat-btn link">
+		<input type="submit" name="submit" value="Save" class="load-form-btn flat-btn link">
 		<button type="button" class="load-form-btn flat-btn link delete-btn" data-formurl="courses/delete/{{course.id}}">Delete</button>
 	</div>
 	<label class="row">
 		<span>Name: </span>
-		<input type="text" placeholder="Name" value="{{course.name}}">
+		<input type="text" placeholder="Name" name="name" value="{{course.name}}">
 	</label>
 	<label class="row">
 		<span>Description: </span>
-		<textarea name="" rows="3" placeholder="Description">{{course.description}}</textarea>
+		<textarea rows="3" placeholder="Description" name="description">{{course.description}}</textarea>
 	</label>
 	<label class="row">
 		<span>Image: </span>
-		<input type="file" placeholder="Image">
+		<input type="file" placeholder="Image" name="image">
 		<img src="../../public/courses/img/{% if course.img is empty %}default.jpg{% else %}{{course.img}}{% endif %}" alt="{{course.name}}">
 	</label>
 	{% if students_count is defined %}

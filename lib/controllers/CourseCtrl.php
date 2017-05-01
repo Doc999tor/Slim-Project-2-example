@@ -33,6 +33,10 @@ class CourseCtrl extends Controller {
     }
 
     public function add(Request $request, Response $response) {
-        return $response;
+        return $response->withStatus(201);
+    }
+    public function edit(Request $request, Response $response, $args) {
+        $body = "id: $args[id]\nbody: " . json_encode($request->getParams()) . json_encode($request->getUploadedFiles());
+        return $response->write($body);
     }
 }
