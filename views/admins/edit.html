@@ -17,12 +17,22 @@
 		<input type="password" placeholder="Password" name="password" value="{{admin.password}}">
 	</label>
 	<label class="row">
-		<span>Choose a role: </span>
-		<select name="role">
-		{% for role in roles %}
-		    <option value="{{role.id}}"{% if loop.first %} selected{% endif %}>{{role.name | capitalize}}</option>
-		{% endfor %}
-		</select>
+	{% if admin.role_name == 'owner' %}
+	    <span>The role is: </span>
+	    <span>{{admin.role_name | capitalize}}</span>
+	    </select>
+	{% else %}
+	    <span>Choose a role: </span>
+	    <select name="role">
+	    {% for role in roles %}
+	    	{% if admin.role_name is not empty %}
+	    		<option value="{{role.id}}"{% if admin.role_name == role.name %} selected{% endif %}>{{role.name | capitalize}}</option>
+	    	{% else %}
+	    	    <option value="{{role.id}}"{% if loop.first %} selected{% endif %}>{{role.name | capitalize}}</option>
+	    	{% endif %}
+	    {% endfor %}
+	    </select>
+	{% endif %}
 	</label>
 
 	<label class="row">

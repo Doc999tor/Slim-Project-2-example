@@ -31,7 +31,7 @@ class StudentCtrl extends Controller {
     public function addForm(Request $request, Response $response) {
         $courses = \Lib\Entities\Course::selectAll($this->db);
         return $this->view->render($response, "students/edit.html", [
-            "student" => ["id" => "", "name" => "", "img" => ""],
+            "student" => ["id" => "", "name" => "", "course_id" => "", "img" => ""],
             "courses" => $courses,
         ]);
     }

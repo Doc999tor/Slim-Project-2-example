@@ -16,7 +16,11 @@
 		<span>Choose a course: </span>
 		<select name="course">
 		{% for course in courses %}
-		    <option value="{{course.id}}"{% if loop.first %} selected{% endif %}>{{course.name}}</option>
+			{% if student.course_id is not empty %}
+				<option value="{{course.id}}"{% if student.course_id == course.id %} selected{% endif %}>{{course.name}}</option>
+			{% else %}
+			    <option value="{{course.id}}"{% if loop.first %} selected{% endif %}>{{course.name}}</option>
+			{% endif %}
 		{% endfor %}
 		</select>
 	</label>

@@ -8,8 +8,10 @@ class AdminCtrl extends Controller {
     public function editForm(Request $request, Response $response, $args) {
         $id = (int)filter_var($args['id'], FILTER_SANITIZE_NUMBER_INT);
         $admin = \Lib\Entities\Admin::selectOne($this->db, $id);
+        $roles = \Lib\Entities\Admin::getRolesForAdminCreation($this->db);
         return $this->view->render($response, "admins/edit.html", [
             "admin" => $admin,
+            "roles" => $roles,
         ]);
     }
     public function addForm(Request $request, Response $response) {
