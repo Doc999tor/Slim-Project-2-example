@@ -6,7 +6,7 @@ body {
 }
 form {
 	width: 50%;
-	max-width: 600px;
+	max-width: 400px;
 	padding: 2rem;
 	border: 1px solid var(--border-color);
 	border-radius: 4px;
@@ -24,4 +24,13 @@ form .row {
 
 form #submit {
 	margin-left: auto;
+	width: initial;
+}
+
+.login-legend {
+	position: fixed;top: 0;right: 0;
+	max-width: 15rem;
+	padding: 2rem;
+	color: #ccc;
+	font-style: italic;
 }
