@@ -7,8 +7,8 @@
 4. `cd project2`
 5. `composer install` - be sure composer itself is already installed
 7. Open Chrome and go to phpmyadmin:
- 1. Create a new db: proj2
- 2. Import .sql file
+    1. Create a new db: proj2
+    2. Import .sql file
 8. Open Chrome and go to [localhost/project2](localhost/project2)
 9. Enjoy
 
