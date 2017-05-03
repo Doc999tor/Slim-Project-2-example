@@ -12,4 +12,18 @@ class Controller {
         $this->view = $container->get('view');
         $this->db = $container->get('db');
     }
+
+    protected function checkSession() {
+    	$session = new \RKA\Session();
+    	if (isset($session->name)) {
+    	    return [
+    	        "name" => $session->name,
+    	        "role" => $session->role,
+    	        "img" => $session->img
+    	    ];
+    	} else {
+    	    return $response->withRedirect('/login');
+    	}
+
+    }
 }

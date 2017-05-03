@@ -8,7 +8,7 @@
 		<div class="main-item">
 			<img src="../../public/courses/img/{{course.img}}" alt="{{course.name}}">
 			<div class="course-details details">
-				<h3>Course {{course.name}}, {{students|length}} Students</h3>
+				<h3>Course {{course.name}}, {{students|length}} Student{% if students|length != 1 %}s{% endif %}</h3>
 				<span class="description">{{course.description}}</span>
 			</div>
 		</div>

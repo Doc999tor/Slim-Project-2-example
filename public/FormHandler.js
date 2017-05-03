@@ -8,10 +8,10 @@ class FormHandler {
 	}
 
 	send () {
-		console.log(this.entity);
-		console.log(this.action);
-		console.log(this.id);
-		console.log(this.url);
+		// console.log(this.entity);
+		// console.log(this.action);
+		// console.log(this.id);
+		// console.log(this.url);
 		return fetch(this.url, {
 			method: this.requestMethod,
 			headers: new Headers({
@@ -30,7 +30,10 @@ class FormHandler {
 	saveState () {
 		var data = Array.from(this.form.querySelectorAll('input,select'))
 			.reduce((obj, input) => {obj[input.name] = input.value; return obj;}, {})
-		data[this.form.querySelector('textarea').name] = this.form.querySelector('textarea').textContent;
+		var textarea = this.form.querySelector('textarea');
+		if (textarea) {
+			data[textarea.name] = this.form.querySelector('textarea').textContent;
+		}
 		return data;
 	}
 

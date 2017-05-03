@@ -3,8 +3,12 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 $app->get('/', function (Request $request, Response $response) {
-    return $response->withRedirect('/school');
+    return $response->withRedirect('/login');
 });
+
+$app->get('/login', 'LoginCtrl:home');
+$app->post('/login', 'LoginCtrl:login');
+$app->get('/logout', 'LoginCtrl:logout');
 
 $app->get('/school', 'SchoolCtrl:home');
 $app->get('/administration', 'AdministrationCtrl:home');
@@ -20,11 +24,11 @@ $app->get('/students/show/{id:\d+}', 'StudentCtrl:show');
 $app->get('/students/edit/{id:\d+}', 'StudentCtrl:editForm');
 $app->get('/students/add', 'StudentCtrl:addForm');
 $app->post('/students', 'StudentCtrl:add');
-$app->put ('/students/{id:\d+}', 'StudentCtrl:put');
+$app->post ('/students/{id:\d+}', 'StudentCtrl:edit');
 $app->delete('/students/{id:\d+}', 'StudentCtrl:delete');
 
 $app->get('/admins/edit/{id:\d+}', 'AdminCtrl:editForm');
 $app->get('/admins/add', 'AdminCtrl:addForm');
 $app->post('/admins', 'AdminCtrl:add');
-$app->put ('/admins/{id:\d+}', 'AdminCtrl:put');
+$app->post ('/admins/{id:\d+}', 'AdminCtrl:edit');
 $app->delete('/admins/{id:\d+}', 'AdminCtrl:delete');

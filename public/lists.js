@@ -1,6 +1,6 @@
 attachLoadEvent(Array.from(document.querySelectorAll('.load-form-btn')));
 // document.querySelectorAll('.load-form-btn')[5].click();
-loadTemplate('courses/add');
+// loadTemplate('admins/add');
 
 function attachLoadEvent(btns) {
 	btns.forEach(btn => btn.addEventListener('click', e => {
@@ -25,13 +25,16 @@ function loadTemplate(url) {
 				e.preventDefault();
 				formHandler.url = url.match(/\w+/g);
 				if (!formHandler.isPristine()) {
-					formHandler.send().then(() => {location.reload();});
+					formHandler.send().then(() => {/*location.reload();*/});
 				} else {console.log('form has not changed');}
 			});
-			container.querySelector('.delete-btn').addEventListener('click', e => {
-				formHandler.url = e.currentTarget.dataset.formurl.match(/\w+/g);
-				formHandler.delete();
-			});
+			var deleteBtn = container.querySelector('.delete-btn');
+			if (deleteBtn) {
+				deleteBtn.addEventListener('click', e => {
+					formHandler.url = e.currentTarget.dataset.formurl.match(/\w+/g);
+					formHandler.delete();
+				});
+			}
 		} else {
 			attachLoadEvent(Array.from(container.querySelectorAll('.load-form-btn')))
 		}

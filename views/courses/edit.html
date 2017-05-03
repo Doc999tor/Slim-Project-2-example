@@ -21,9 +21,7 @@
 		<input type="file" placeholder="Image" name="image">
 		<img src="../../public/courses/img/{% if course.img is empty %}default.jpg{% else %}{{course.img}}{% endif %}" alt="{{course.name}}">
 	</label>
-	{% if students_count is defined %}
 	<footer>
-		<span>Total {{students_count}} {% if students_count == 1 %}student{% else %}s{% endif %} taking course {{course.name}}</span>
+		<span>Total {{students_count}} student{% if students_count != 1 %}s{% endif %} taking course {{course.name}}</span>
 	</footer>
-	{% endif %}
 </form>

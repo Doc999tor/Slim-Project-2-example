@@ -1,0 +1,27 @@
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+form {
+	width: 50%;
+	max-width: 600px;
+	padding: 2rem;
+	border: 1px solid var(--border-color);
+	border-radius: 4px;
+}
+form fieldset {
+	margin: 0;
+	padding: 1rem 0 0 0;
+	border: none;
+}
+form legend {padding: 0;}
+
+form .row {
+	align-items: center;
+}
+
+form #submit {
+	margin-left: auto;
+}

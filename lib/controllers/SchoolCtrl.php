@@ -6,6 +6,8 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 class SchoolCtrl extends Controller {
     public function home(Request $request, Response $response): Response {
+        $admin = $this->checkSession();
+
         $path = 'home';
         $courses = \Lib\Entities\Course::selectAll($this->db);
         $students = \Lib\Entities\Student::selectAll($this->db);
@@ -24,11 +26,7 @@ class SchoolCtrl extends Controller {
                     "arr" => $students,
                 ],
             ],
-            "admin" => [
-                "name" => "war",
-                "role" => "sales",
-                "img" => "war.jpg"
-            ],
+            "admin" => $admin,
         ]);
     }
 }

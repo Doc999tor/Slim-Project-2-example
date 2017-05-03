@@ -6,6 +6,8 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 class AdministrationCtrl extends Controller {
     public function home(Request $request, Response $response): Response {
+        $admin = $this->checkSession();
+
         $path = 'home';
         $admins = \Lib\Entities\Admin::selectAll($this->db);
 
@@ -19,11 +21,7 @@ class AdministrationCtrl extends Controller {
                     "arr" => $admins,
                 ],
             ],
-            "admin" => [
-                "name" => "war",
-                "role" => "sales",
-                "img" => "war.jpg"
-            ],
+            "admin" => $admin,
         ]);
     }
 }

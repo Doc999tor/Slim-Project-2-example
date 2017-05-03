@@ -8,7 +8,7 @@ abstract class Person implements ISavable {
 	public $name;
 	public $img;
 
-	function __construct($id, $name, $img) {
+	function __construct($id, $name, $img = null) {
 		$this->id = $id;
 		$this->name = $name;
 		$this->img = $img;

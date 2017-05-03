@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login page</title>
+	<link rel="stylesheet" type="text/css" href="public/home.css"/>
+	<link rel="stylesheet" type="text/css" href="public/edit.css"/>
+	<link rel="stylesheet" type="text/css" href="public/login.css"/>
+</head>
+<body>
+	<form action="/login" method="POST">
+		<fieldset>
+			<legend>Please enter name and password</legend>
+			<label class="row">
+				<span>Name: </span>
+				<input type="text" placeholder="Name" name="name">
+			</label>
+			<label class="row">
+				<span>Password: </span>
+				<input type="password" placeholder="Password" name="password">
+			</label>
+		</fieldset>
+		<div class="row">
+			<input type="submit" id="submit" value="Login" class="load-form-btn flat-btn link">
+		</div>
+
+	</form>
+</body>
+</html>

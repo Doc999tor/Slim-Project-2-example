@@ -21,8 +21,7 @@ class Course implements ISavable {
 	public function save(\PDO $db, UploadedFile $newFile) {
 		$this->saveImage($newFile);
 
-		$stmt = $db->prepare("INSERT INTO " . self::$table_name . " VALUES (:id, :name, :description, :img)");
-		$stmt->bindValue(':id', (int)$this->id, \PDO::PARAM_INT);
+		$stmt = $db->prepare("INSERT INTO " . self::$table_name . " VALUES (NULL, :name, :description, :img)");
 		$stmt->bindValue(':name', (string)$this->name, \PDO::PARAM_STR);
 		$stmt->bindValue(':description', (string)$this->description, \PDO::PARAM_STR);
 		$stmt->bindValue(':img', (string)$newFile->getClientFilename(), \PDO::PARAM_STR);
@@ -33,8 +32,8 @@ class Course implements ISavable {
 		$stmt = $db->prepare("where id = :course_id) LIMIT 1");
 		$stmt->bindValue(':course_id', (int)$course_id, \PDO::PARAM_INT);
 		$stmt->execute();
-
 	}
+
 	public function delete(\PDO $db) {
 		$stmt = $db->prepare("where id = :course_id) LIMIT 1");
 		$stmt->bindValue(':course_id', (int)$course_id, \PDO::PARAM_INT);

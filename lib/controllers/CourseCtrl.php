@@ -5,6 +5,19 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 class CourseCtrl extends Controller {
+    public function show(Request $request, Response $response, $args) {
+        $path = 'courses';
+        $id = (int)filter_var($args['id'], FILTER_SANITIZE_NUMBER_INT);
+        $course = \Lib\Entities\Course::selectOne($this->db, $id);
+        $students = \Lib\Entities\Student::selectByCourse($this->db, $id);
+
+        return $this->view->render($response, "{$path}/show.html", [
+            "path" => $path,
+            "course" => $course,
+            "students" => $students,
+        ]);
+    }
+
     public function editForm(Request $request, Response $response, $args) {
         $id = (int)filter_var($args['id'], FILTER_SANITIZE_NUMBER_INT);
         $course = \Lib\Entities\Course::selectOne($this->db, $id);
@@ -19,30 +32,30 @@ class CourseCtrl extends Controller {
             "course" => ["id" => "", "name" => "", "img" => ""]
         ]);
     }
-    public function show(Request $request, Response $response, $args) {
-        $path = 'courses';
-        $id = (int)filter_var($args['id'], FILTER_SANITIZE_NUMBER_INT);
-        $course = \Lib\Entities\Course::selectOne($this->db, $id);
-        $students = \Lib\Entities\Student::selectByCourse($this->db, $id);
-
-        return $this->view->render($response, "{$path}/show.html", [
-            "path" => $path,
-            "course" => $course,
-            "students" => $students,
-        ]);
-    }
 
     public function add(Request $request, Response $response) {
-
         $details = $request->getParsedBody();
         $files = $request->getUploadedFiles()['image'];
-        $new_course = new \Lib\Entities\Course(null, $details['name'] ?? null, $details['description'] ?? null);
+
+        $name = filter_var($details['name'], FILTER_SANITIZE_STRING) ?? null;
+        $description = filter_var($details['description'], FILTER_SANITIZE_STRING) ?? null;
+
+        $new_course = new \Lib\Entities\Course(null, $name, $description);
         $new_course->save($this->db, $files);
 
         return $response->withStatus(201);
     }
     public function edit(Request $request, Response $response, $args) {
-        $body = "id: $args[id]\nbody: " . json_encode($request->getParams()) . json_encode($request->getUploadedFiles());
-        return $response->write($body);
+        $details = $request->getParsedBody();
+        $files = $request->getUploadedFiles()['image'];
+
+        $id = filter_var($args['id'], FILTER_SANITIZE_NUMBER_INT);
+        $name = filter_var($details['name'], FILTER_SANITIZE_STRING) ?? null;
+        $description = filter_var($details['description'], FILTER_SANITIZE_STRING) ?? null;
+
+        $new_course = new \Lib\Entities\Course($id, $name, $description);
+        $new_course->edit($this->db, $files);
+
+        return $response->withStatus(200);
     }
 }

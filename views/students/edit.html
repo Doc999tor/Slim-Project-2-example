@@ -10,11 +10,19 @@
 	</div>
 	<label class="row">
 		<span>Name: </span>
-		<input type="text" placeholder="Name" value="{{student.name}}">
+		<input type="text" placeholder="Name" value="{{student.name}}" name="name">
+	</label>
+	<label class="row">
+		<span>Choose a course: </span>
+		<select name="course">
+		{% for course in courses %}
+		    <option value="{{course.id}}"{% if loop.first %} selected{% endif %}>{{course.name}}</option>
+		{% endfor %}
+		</select>
 	</label>
 	<label class="row">
 		<span>Image: </span>
-		<input type="file" placeholder="Image">
+		<input type="file" placeholder="Image" name="image">
 		<img src="../../public/students/img/{% if student.img is empty %}default.jpg{% else %}{{student.img}}{% endif %}" alt="{{student.name}}">
 	</label>
 </form>

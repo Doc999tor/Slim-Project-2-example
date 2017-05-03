@@ -13,12 +13,37 @@ class AdminCtrl extends Controller {
         ]);
     }
     public function addForm(Request $request, Response $response) {
+        $roles = \Lib\Entities\Admin::getRolesForAdminCreation($this->db);
+
         return $this->view->render($response, "admins/edit.html", [
-            "admin" => ["id" => "", "name" => "", "img" => "", "role_name" => ""]
+            "admin" => ["id" => "", "name" => "", "img" => "", "role_name" => ""],
+            "roles" => $roles
         ]);
     }
 
     public function add(Request $request, Response $response) {
-        return $response;
+        $details = $request->getParsedBody();
+        $files = $request->getUploadedFiles()['image'];
+
+        $name = filter_var($details['name'], FILTER_SANITIZE_STRING) ?? null;
+        $password = filter_var($details['password'], FILTER_SANITIZE_STRING) ?? null;
+        $role_id = filter_var($details['role'], FILTER_SANITIZE_NUMBER_INT) ?? null;
+
+        $admin = new \Lib\Entities\Admin(null, $name, null, $password, $role_id);
+        $admin->save($this->db, $files);
+
+        return $response->withStatus(201);
+    }
+    public function edit(Request $request, Response $response, $args) {
+        $details = $request->getParsedBody();
+        $files = $request->getUploadedFiles()['image'];
+
+        $id = filter_var($args['id'], FILTER_SANITIZE_NUMBER_INT);
+        $name = filter_var($details['name'], FILTER_SANITIZE_STRING) ?? null;
+
+        $admin = new \Lib\Entities\Admin($id, $name);
+        $admin->edit($this->db, $files);
+
+        return $response->withStatus(200);
     }
 }

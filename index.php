@@ -18,6 +18,7 @@ $container = $app->getContainer();
 // Register component on container
 $container['view'] = function ($container) {
 	$view = new \Slim\Views\Twig('views', [
+		'debug' => true,
 		'cache' => false
 	]);
 	$view->addExtension(new \Slim\Views\TwigExtension(
@@ -44,6 +45,11 @@ $container['db'] = function ($c) {
 	return $pdo;
 };
 
+$app->add(new \RKA\SessionMiddleware());
+
+$container['LoginCtrl'] = function ($container) {
+	return new \Lib\Controllers\LoginCtrl($container);
+};
 $container['SchoolCtrl'] = function ($container) {
 	return new \Lib\Controllers\SchoolCtrl($container);
 };
