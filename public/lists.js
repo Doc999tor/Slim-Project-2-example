@@ -1,6 +1,6 @@
 attachLoadEvent(Array.from(document.querySelectorAll('.load-form-btn')));
 // document.querySelectorAll('.load-form-btn')[5].click();
-loadTemplate('courses/edit/1');
+loadTemplate('courses/add');
 
 function attachLoadEvent(btns) {
 	btns.forEach(btn => btn.addEventListener('click', e => {
@@ -25,7 +25,7 @@ function loadTemplate(url) {
 				e.preventDefault();
 				formHandler.url = url.match(/\w+/g);
 				if (!formHandler.isPristine()) {
-					formHandler.send();
+					formHandler.send().then(() => {location.reload();});
 				} else {console.log('form has not changed');}
 			});
 			container.querySelector('.delete-btn').addEventListener('click', e => {

@@ -4,6 +4,7 @@ class FormHandler {
 		this.form = form;
 		this.previousState = this.saveState();
 		console.log(this.previousState);
+		this.form.addEventListener('change', this.updateImagePreview.bind(this));
 	}
 
 	send () {
@@ -34,16 +35,12 @@ class FormHandler {
 	}
 
 	isPristine () {
-		if (!this.currentState) {this.currentState = this.saveState();}
+		this.currentState = this.saveState();
 		return JSON.stringify(this.previousState) === JSON.stringify(this.currentState);
 	}
 
 	get formData () {
-		if (!this.currentState) {this.currentState = this.saveState();}
 		var formData  = new FormData(this.form);
-		// Object.keys(this.currentState).forEach(k => {
-		// 	formData.append(k, this.currentState[k]);
-		// });
 		return formData;
 	}
 
@@ -63,5 +60,21 @@ class FormHandler {
 			default: console.log('unknown request method'); break;
 		}
 		return method;
+	}
+
+	updateImagePreview () {
+		var input = this.form.querySelector('input[type=file]');
+
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = e => {
+				var preview = this.form.querySelector('input[type=file]+img');
+				preview.src = e.target.result;
+			}
+
+			reader.readAsDataURL(input.files[0]);
+		}
+
+
 	}
 }

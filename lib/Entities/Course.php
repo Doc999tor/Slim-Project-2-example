@@ -1,6 +1,8 @@
 <?php
 namespace Lib\Entities;
 
+use \Psr\Http\Message\UploadedFileInterface as UploadedFile;
+
 class Course implements ISavable {
 	use SelectAll;
 	public $id;
@@ -9,20 +11,25 @@ class Course implements ISavable {
 	public $img;
 	private static $table_name = 'courses';
 
-	function __construct($id, $name, $description, $img) {
+	function __construct($id, $name, $description, $img = null) {
 		$this->id = $id;
 		$this->name = $name;
 		$this->description = $description;
 		$this->img = $img;
 	}
 
-	public function save(\PDO $db) {
-		$stmt = $db->prepare("where id = :course_id) LIMIT 1");
-		$stmt->bindValue(':course_id', (int)$course_id, \PDO::PARAM_INT);
+	public function save(\PDO $db, UploadedFile $newFile) {
+		$this->saveImage($newFile);
+
+		$stmt = $db->prepare("INSERT INTO " . self::$table_name . " VALUES (:id, :name, :description, :img)");
+		$stmt->bindValue(':id', (int)$this->id, \PDO::PARAM_INT);
+		$stmt->bindValue(':name', (string)$this->name, \PDO::PARAM_STR);
+		$stmt->bindValue(':description', (string)$this->description, \PDO::PARAM_STR);
+		$stmt->bindValue(':img', (string)$newFile->getClientFilename(), \PDO::PARAM_STR);
 		$stmt->execute();
 
 	}
-	public function edit(\PDO $db) {
+	public function edit(\PDO $db, UploadedFile $newFile) {
 		$stmt = $db->prepare("where id = :course_id) LIMIT 1");
 		$stmt->bindValue(':course_id', (int)$course_id, \PDO::PARAM_INT);
 		$stmt->execute();

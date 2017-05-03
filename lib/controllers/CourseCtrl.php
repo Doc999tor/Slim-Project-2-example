@@ -33,6 +33,12 @@ class CourseCtrl extends Controller {
     }
 
     public function add(Request $request, Response $response) {
+
+        $details = $request->getParsedBody();
+        $files = $request->getUploadedFiles()['image'];
+        $new_course = new \Lib\Entities\Course(null, $details['name'] ?? null, $details['description'] ?? null);
+        $new_course->save($this->db, $files);
+
         return $response->withStatus(201);
     }
     public function edit(Request $request, Response $response, $args) {

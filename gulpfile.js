@@ -16,6 +16,7 @@ gulp.task('watch', function () {
 		'lib/**/*.*',
 		'views/**/*.*',
 		'public/**/*.*',
+		'!public/**/img/*.*',
 		'!node_modules/**/*.*',
 	]).on('change', reload);
 });

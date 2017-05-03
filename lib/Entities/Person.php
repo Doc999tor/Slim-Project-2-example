@@ -1,6 +1,8 @@
 <?php
 namespace Lib\Entities;
 
+use \Psr\Http\Message\UploadedFileInterface as UploadedFile;
+
 abstract class Person implements ISavable {
 	public $id;
 	public $name;
@@ -12,7 +14,7 @@ abstract class Person implements ISavable {
 		$this->img = $img;
 	}
 
-	public function save(\PDO $db) {}
-	public function edit(\PDO $db) {}
+	public function save(\PDO $db, UploadedFile $newFile) {}
+	public function edit(\PDO $db, UploadedFile $newFile) {}
 	public function delete(\PDO $db) {}
 }
