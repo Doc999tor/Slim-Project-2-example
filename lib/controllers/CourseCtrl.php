@@ -24,12 +24,14 @@ class CourseCtrl extends Controller {
         $students_count = \Lib\Entities\Student::countByCourse($this->db, $id);
         return $this->view->render($response, "courses/edit.html", [
             "course" => $course,
-            "students_count" => $students_count
+            "students_count" => $students_count,
+            "action" => "edit",
         ]);
     }
     public function addForm(Request $request, Response $response) {
         return $this->view->render($response, "courses/edit.html", [
-            "course" => ["id" => "", "name" => "", "img" => ""]
+            "course" => ["id" => "", "name" => "", "img" => ""],
+            "action" => "add",
         ]);
     }
 

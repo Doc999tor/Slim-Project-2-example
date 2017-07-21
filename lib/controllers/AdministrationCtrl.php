@@ -6,7 +6,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 class AdministrationCtrl extends Controller {
     public function home(Request $request, Response $response): Response {
-        $admin = $this->checkSession();
+        $admin = $this->getLoggedInAdmin();
 
         $path = 'home';
         $admins = \Lib\Entities\Admin::selectAll($this->db);

@@ -13,16 +13,17 @@ class Controller {
         $this->db = $container->get('db');
     }
 
-    protected function checkSession() {
+    protected function getLoggedInAdmin() {
     	$session = new \RKA\Session();
-    	if (isset($session->name)) {
-    	    return [
-    	        "name" => $session->name,
-    	        "role" => $session->role,
-    	        "img" => $session->img
-    	    ];
+        if (isset($session->name)) {
+            return [
+                "name" => $session->name,
+                "role" => $session->role,
+                "img" => $session->img
+            ];
     	} else {
-    	    return $response->withRedirect('/login');
+    	    throw new Exception("Session is empty", 1);
+            return false;
     	}
 
     }

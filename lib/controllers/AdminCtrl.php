@@ -12,6 +12,7 @@ class AdminCtrl extends Controller {
         return $this->view->render($response, "admins/edit.html", [
             "admin" => $admin,
             "roles" => $roles,
+            "action" => "edit",
         ]);
     }
     public function addForm(Request $request, Response $response) {
@@ -19,7 +20,8 @@ class AdminCtrl extends Controller {
 
         return $this->view->render($response, "admins/edit.html", [
             "admin" => ["id" => "", "name" => "", "img" => "", "role_name" => ""],
-            "roles" => $roles
+            "roles" => $roles,
+            "action" => "add",
         ]);
     }
 

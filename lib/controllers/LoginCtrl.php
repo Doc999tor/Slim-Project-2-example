@@ -22,11 +22,7 @@ class LoginCtrl extends Controller {
             $session->set('role', $admin->role_name);
             $session->set('img', $admin->img);
 
-            // echo "<pre>";
-            // print_r($session->name);
-            // echo "</pre>";
-            // die();
-            return $response->withRedirect('/school');
+           return $response->withRedirect('/school');
         } else {
             return $response->withRedirect('/login');
         }

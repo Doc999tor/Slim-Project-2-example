@@ -1,8 +1,7 @@
 <link rel="stylesheet" type="text/css" href="public/edit.css"/>
 <form class="edit admin-edit" autocomplete="offoff">
 	<header>
-		<h3>{% if admin.name is empty %}Add {% else %}Edit
-		     {% endif %} administrator {{admin.name}}</h3>
+		<h3>{{action | capitalize}} administrator {{admin.name}}</h3>
 	</header>
 	<div class="row">
 		<input type="submit" value="Save" class="load-form-btn flat-btn link">
@@ -25,7 +24,7 @@
 	    <span>Choose a role: </span>
 	    <select name="role">
 	    {% for role in roles %}
-	    	{% if admin.role_name is not empty %}
+	    	{% if action == 'edit' %}
 	    		<option value="{{role.id}}"{% if admin.role_name == role.name %} selected{% endif %}>{{role.name | capitalize}}</option>
 	    	{% else %}
 	    	    <option value="{{role.id}}"{% if loop.first %} selected{% endif %}>{{role.name | capitalize}}</option>

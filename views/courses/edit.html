@@ -1,8 +1,7 @@
 <link rel="stylesheet" type="text/css" href="public/edit.css"/>
-<form class="edit course-edit">
+<form class="edit course-edit" action="courses/{{action}}/{{course.id}}" method="POST">
 	<header>
-		<h3>{% if course.name is empty %}Add {% else %}Edit
-		     {% endif %} course {{course.name}}</h3>
+		<h3>{{action | capitalize}} course {{course.name}}</h3>
 	</header>
 	<div class="row">
 		<input type="submit" name="submit" value="Save" class="load-form-btn flat-btn link">
@@ -21,7 +20,9 @@
 		<input type="file" placeholder="Image" name="image">
 		<img src="../../public/courses/img/{% if course.img is empty %}default.jpg{% else %}{{course.img}}{% endif %}" alt="{{course.name}}">
 	</label>
+	{% if action == 'edit' %}
 	<footer>
 		<span>Total {{students_count}} student{% if students_count != 1 %}s{% endif %} taking course {{course.name}}</span>
 	</footer>
+	{% endif %}
 </form>

@@ -29,16 +29,17 @@ class FormHandler {
 
 	saveState () {
 		var data = Array.from(this.form.querySelectorAll('input,select'))
-			.reduce((obj, input) => {obj[input.name] = input.value; return obj;}, {})
+			.reduce((obj, input) => {obj[input.name] = input.value.trim(); return obj;}, {})
 		var textarea = this.form.querySelector('textarea');
 		if (textarea) {
-			data[textarea.name] = this.form.querySelector('textarea').textContent;
+			data[textarea.name] = textarea.value.trim();
 		}
 		return data;
 	}
 
 	isPristine () {
 		this.currentState = this.saveState();
+		console.log(this.currentState);
 		return JSON.stringify(this.previousState) === JSON.stringify(this.currentState);
 	}
 

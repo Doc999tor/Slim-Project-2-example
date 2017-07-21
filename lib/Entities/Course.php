@@ -29,8 +29,20 @@ class Course implements ISavable {
 
 	}
 	public function edit(\PDO $db, UploadedFile $newFile) {
-		$stmt = $db->prepare("where id = :course_id) LIMIT 1");
-		$stmt->bindValue(':course_id', (int)$course_id, \PDO::PARAM_INT);
+		$this->saveImage($newFile);
+
+		$sql = "UPDATE " . self::$table_name . "
+			SET
+				name = :name,
+				description = :description,
+				image = :img
+			WHERE id = :id LIMIT 1";
+
+		$stmt = $db->prepare($sql);
+		$stmt->bindValue(':id', (int)$this->id, \PDO::PARAM_INT);
+		$stmt->bindValue(':name', (string)$this->name, \PDO::PARAM_STR);
+		$stmt->bindValue(':description', (string)$this->description, \PDO::PARAM_STR);
+		$stmt->bindValue(':img', (string)$newFile->getClientFilename(), \PDO::PARAM_STR);
 		$stmt->execute();
 	}
 

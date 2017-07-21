@@ -6,7 +6,10 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 class SchoolCtrl extends Controller {
     public function home(Request $request, Response $response): Response {
-        $admin = $this->checkSession();
+        $session = new \RKA\Session();
+        $response->getBody()->write($session->get('name', 'default'));
+
+        $admin = $this->getLoggedInAdmin();
 
         $path = 'home';
         $courses = \Lib\Entities\Course::selectAll($this->db);

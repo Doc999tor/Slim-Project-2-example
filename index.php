@@ -5,7 +5,11 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 require 'vendor/autoload.php';
 
-$config['displayErrorDetails'] = true;
+$config = [
+	'displayErrorDetails' => true,
+	'determineRouteBeforeAppMiddleware' => true,
+	'addContentLengthHeader' => false,
+];
 
 $config['db'] = include 'db_config.php';
 
@@ -46,6 +50,7 @@ $container['db'] = function ($c) {
 };
 
 $app->add(new \RKA\SessionMiddleware());
+// $app->add(new \Lib\Middlewares\CheckSession());
 
 $container['LoginCtrl'] = function ($container) {
 	return new \Lib\Controllers\LoginCtrl($container);

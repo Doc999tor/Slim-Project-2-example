@@ -26,6 +26,7 @@ class StudentCtrl extends Controller {
         return $this->view->render($response, "students/edit.html", [
             "student" => $student,
             "courses" => $courses,
+            "action" => "edit",
         ]);
     }
     public function addForm(Request $request, Response $response) {
@@ -33,6 +34,7 @@ class StudentCtrl extends Controller {
         return $this->view->render($response, "students/edit.html", [
             "student" => ["id" => "", "name" => "", "course_id" => "", "img" => ""],
             "courses" => $courses,
+            "action" => "add",
         ]);
     }
 
